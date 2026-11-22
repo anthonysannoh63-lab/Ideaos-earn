@@ -56,6 +56,28 @@ footer{text-align:center;padding:25px;color:#aeb8ca}
 <h2>Join Our Vision</h2>
 <p>IDEAOS EARN — Building opportunities worldwide.</p>
 </section>
-<footer>© 2026 IDEAOS EARN. All rights reserved.</footer>
+<footer>© 2026 IDEAOS EARN. All rights reserved.</footer><script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDDZpRFldBcxOtQ2kcaFGbGFWim6qqeF8s",
+    authDomain: "ideaos-earn.firebaseapp.com",
+    projectId: "ideaos-earn",
+    storageBucket: "ideaos-earn.firebasestorage.app",
+    messagingSenderId: "637076126929",
+    appId: "1:637076126929:web:f988cf1a35069727b819f0",
+    measurementId: "G-Z0H3Z5HVNL"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 </html>
