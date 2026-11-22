@@ -79,5 +79,25 @@ footer{text-align:center;padding:25px;color:#aeb8ca}
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
+<section id="register" style="padding:30px 20px;text-align:center;background:#111b35;color:white">
+  <h2 style="color:#35d6c4">Create Your IDEAOS EARN Account</h2>
+  <form id="registerForm" style="max-width:400px;margin:auto">
+    <input id="fullName" type="text" placeholder="Full Name" required style="width:100%;padding:14px;margin:8px 0">
+    <input id="username" type="text" placeholder="Username" required style="width:100%;padding:14px;margin:8px 0">
+    <input id="email" type="email" placeholder="Email Address" required style="width:100%;padding:14px;margin:8px 0">
+    <input id="password" type="password" placeholder="Password (at least 6 characters)" minlength="6" required style="width:100%;padding:14px;margin:8px 0">
+    <select id="country" required style="width:100%;padding:14px;margin:8px 0">
+      <option value="">Choose your country</option>
+      <option>Sierra Leone</option>
+      <option>Nigeria</option>
+      <option>Ghana</option>
+      <option>Liberia</option>
+      <option>Other</option>
+    </select>
+    <button type="submit" style="width:100%;padding:14px;background:#35d6c4;border:0;border-radius:8px;font-weight:bold">Create Account</button>
+    <p id="registerMessage" aria-live="polite"></p>
+  </form>
+</section>
+
 </body>
 </html>
