@@ -58,7 +58,11 @@ footer{text-align:center;padding:25px;color:#aeb8ca}
 </section>
 <footer>© 2026 IDEAOS EARN. All rights reserved.</footer><script type="module">
   // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile
+} from "https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-analytics.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -77,7 +81,7 @@ footer{text-align:center;padding:25px;color:#aeb8ca}
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  const auth = getAuth(app);const analytics = getAnalytics(app);
 </script>
 <section id="register" style="padding:30px 20px;text-align:center;background:#111b35;color:white">
   <h2 style="color:#35d6c4">Create Your IDEAOS EARN Account</h2>
@@ -98,6 +102,42 @@ footer{text-align:center;padding:25px;color:#aeb8ca}
     <p id="registerMessage" aria-live="polite"></p>
   </form>
 </section>
+
+<script type="module">
+const registerForm = document.getElementById("registerForm");
+
+if (registerForm) {
+  registerForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const fullName = document.getElementById("fullName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("registerMessage");
+
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      await updateProfile(result.user, {
+        displayName: fullName
+      });
+
+      message.textContent = "Account created successfully!";
+      message.style.color = "#35d6c4";
+
+      registerForm.reset();
+
+    } catch (error) {
+      message.textContent = error.message;
+      message.style.color = "red";
+    }
+  });
+}
+</script>
 
 </body>
 </html>
